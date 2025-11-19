@@ -16,7 +16,7 @@ html = """<!doctype html>
 </head>
 <body>
 
-<h3>Interactive H₂ lines — CR / UV contributions</h3>
+<h3>Interactive H₂ lines — CR / UV contribution</h3>
 
 <div class="controls">
 
