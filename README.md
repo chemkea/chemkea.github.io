@@ -1,5 +1,4 @@
-# chemkea.github.io
-#from pathlib import Path, PurePosixPath
+
 html = """<!doctype html>
 <html>
 <head>
