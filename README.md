@@ -1,5 +1,4 @@
 
-html = """<!doctype html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -16,18 +15,18 @@ html = """<!doctype html>
 </head>
 <body>
 
-<h3>Interactive H₂ lines — CR / UV contribution</h3>
+<h3>Interactive H₂ lines — CR / UV contributions</h3>
 
 <div class="controls">
 
   <div class="control-block">
-    <label class="small">ζ (cosmic-ray ionization rate) — log10</label>
+    <label class="small">ζ (cosmic-ray ionization rate)</label>
     <input id="zeta_slider" type="range" min="-18" max="-14" step="0.01" value="-16" style="width:260px;">
     <div class="small">ζ = <span id="zeta_val">1.70e-16</span> s⁻¹</div>
   </div>
 
   <div class="control-block">
-    <label class="small">χ<sub>UV</sub> (UV scaling) — log10</label>
+    <label class="small">χ<sub>UV</sub> (normalized UV field energy density)</label>
     <input id="chi_slider" type="range" min="-1" max="2" step="0.01" value="0" style="width:260px;">
     <div class="small">χ<sub>UV</sub> = <span id="chi_val">1.89</span></div>
   </div>
@@ -206,4 +205,4 @@ reset_btn.addEventListener('click', function(){
 </script>
 </body>
 </html>
-"""
+
