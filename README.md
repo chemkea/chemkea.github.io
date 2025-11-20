@@ -15,8 +15,8 @@
 </head>
 <body>
 
-<h3>Interactive H₂ lines — CR / UV contributions</h3>
-
+<h2>Interactive H₂ lines — CR / UV contributions</h2>
+<a href="https://arxiv.org/abs/2508.20168">Back to the article</a>
 <div class="controls">
 
   <div class="control-block">
@@ -32,7 +32,7 @@
   </div>
 
   <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
-    <button id="reset_btn">Reset parameters</button>
+    <button id="reset_btn">Best fit model</button>
     <div class="small">Reduced χ²: <span id="chi2box">--</span></div>
   </div>
 
@@ -97,10 +97,11 @@ const total_trace = {
   x: lines,
   y: TOTAL,
   type: 'bar',
-  name: 'Total model',
-  marker: {color: '#bbbbbb'},
-  opacity: 0.35,
+  name: 'Model (CR+UV)',
+  marker: {color: '#808080'},
+  opacity: 0.5,
   offsetgroup: 'TOTAL',
+  hovertemplate: " %{y:.2e}",
   width: 0.8
 };
 const cr_trace = {
@@ -111,6 +112,7 @@ const cr_trace = {
   marker: {color: '#1f77b4'},
   width: 0.32,
   offsetgroup: 'CR',
+  hovertemplate: " %{y:.2e}",
   alignmentgroup: 'group1'
 };
 const uv_trace = {
@@ -121,6 +123,7 @@ const uv_trace = {
   marker: {color: '#ff7f0e'},
   width: 0.32,
   offsetgroup: 'UV',
+  hovertemplate: " %{y:.2e}",
   alignmentgroup: 'group1'
 };
 const obs_trace = {
@@ -128,21 +131,22 @@ const obs_trace = {
   y: obs,
   mode: 'markers',
   type: 'scatter',
-  name: 'Observations',
+  name: 'JWST observations of B68',
   marker: {color: 'black', size: 10},
-  error_y: {type: 'data', array: obs_err, visible: true, thickness:1.5, width:4}
+  hovertemplate: " %{y:.2e}",
+  error_y: {type: 'data', array: obs_err, visible: true, thickness:1.5, width:4, showlegend: true}
 };
 
 const layout = {
   barmode: 'group',
   xaxis: {
-    title: 'Wavelength (μm)',
+    title: "Wavelength (μm)",
     type: 'category',
     categoryorder: 'array',
     categoryarray: lines
   },
   yaxis: {title: "Intensity (erg cm⁻² s⁻¹ sr⁻¹)", showexponent: "all", exponentformat: "power"},
-  legend: {orientation: 'h', y: 1.12},
+  legend: {orientation: 'v', y: 1.12, x: 0},
   margin: {t:60}
 };
 
@@ -205,4 +209,3 @@ reset_btn.addEventListener('click', function(){
 </script>
 </body>
 </html>
-
