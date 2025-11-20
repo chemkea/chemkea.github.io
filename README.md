@@ -21,13 +21,13 @@
 
   <div class="control-block">
     <label class="small">ζ (cosmic-ray ionization rate)</label>
-    <input id="zeta_slider" type="range" min="-18" max="-14" step="0.01" value="-16" style="width:260px;">
+    <input id="zeta_slider" type="range" min="-18" max="-15" step="0.01" value="-16" style="width:260px;">
     <div class="small">ζ = <span id="zeta_val">1.70e-16</span> s⁻¹</div>
   </div>
 
   <div class="control-block">
     <label class="small">χ<sub>UV</sub> (normalized UV field energy density)</label>
-    <input id="chi_slider" type="range" min="-1" max="2" step="0.01" value="0" style="width:260px;">
+    <input id="chi_slider" type="range" min="-1" max="1" step="0.01" value="0" style="width:260px;">
     <div class="small">χ<sub>UV</sub> = <span id="chi_val">1.89</span></div>
   </div>
 
@@ -96,6 +96,7 @@ let TOTAL = CR.map((v,i)=>v+UV[i]);
 const total_trace = {
   x: lines,
   y: TOTAL,
+  legendgroup: 'model',
   type: 'bar',
   name: 'Model (CR+UV)',
   marker: {color: '#808080'},
@@ -107,6 +108,7 @@ const total_trace = {
 const cr_trace = {
   x: lines,
   y: CR,
+  legendgroup: 'model',
   type: 'bar',
   name: 'CR contribution',
   marker: {color: '#1f77b4'},
@@ -118,6 +120,7 @@ const cr_trace = {
 const uv_trace = {
   x: lines,
   y: UV,
+  legendgroup: 'model',
   type: 'bar',
   name: 'UV contribution',
   marker: {color: '#ff7f0e'},
@@ -129,6 +132,7 @@ const uv_trace = {
 const obs_trace = {
   x: lines,
   y: obs,
+  legendgroup: 'observed',
   mode: 'markers',
   type: 'scatter',
   name: 'JWST observations of B68',
@@ -146,7 +150,7 @@ const layout = {
     categoryarray: lines
   },
   yaxis: {title: "Intensity (erg cm⁻² s⁻¹ sr⁻¹)", showexponent: "all", exponentformat: "power"},
-  legend: {orientation: 'v', y: 1.12, x: 0},
+  legend: {orientation: 'h', y: 1.12, x: 0},
   margin: {t:60}
 };
 
