@@ -178,7 +178,7 @@ zeta_slider.addEventListener('input', function(){
   TOTAL = CR.map((v,i)=>v+UV[i]);
   Plotly.update('plot',
     {'x': [lines, lines], 'y': [TOTAL, CR]},
-    {'xaxis': {type:'category', categoryorder:'array', categoryarray: lines}},
+    {'xaxis': {title:'Wavelength (μm)', type:'category', categoryorder:'array', categoryarray: lines}},
     [0,1]
   ).then(update_chi2_display);
 });
@@ -191,7 +191,7 @@ chi_slider.addEventListener('input', function(){
   TOTAL = CR.map((v,i)=>v+UV[i]);
   Plotly.update('plot',
     {'x': [lines, lines], 'y': [TOTAL, UV]},
-    {'xaxis': {type:'category', categoryorder:'array', categoryarray: lines}},
+    {'xaxis': {title:'Wavelength (μm)', type:'category', categoryorder:'array', categoryarray: lines}},
     [0,2]
   ).then(update_chi2_display);
 });
@@ -205,7 +205,7 @@ reset_btn.addEventListener('click', function(){
   TOTAL = CR.map((v,i)=>v+UV[i]);
   Plotly.update('plot',
     {'x': [lines, lines, lines], 'y': [TOTAL, CR, UV]},
-    {'xaxis': {type:'category', categoryorder:'array', categoryarray: lines}},
+    {'xaxis': {title:'Wavelength (μm)', type:'category', categoryorder:'array', categoryarray: lines}},
     [0,1,2]
   ).then(update_chi2_display);
 });
